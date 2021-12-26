@@ -1,0 +1,240 @@
+<div class="toastui-editor-md-preview" style="min-height: 475px;"><div class="toastui-editor-contents"><h1 data-nodeid="312">EMP_GetEmployeeInfo</h1>
+<p data-nodeid="313">獲取員工基本資料</p>
+<h2 data-nodeid="314">接口訊息</h2>
+<table data-nodeid="316">
+<thead data-nodeid="317">
+<tr data-nodeid="318">
+<th data-nodeid="320">接口</th>
+<th data-nodeid="321">描述</th>
+<th data-nodeid="322">版本</th>
+</tr>
+</thead>
+<tbody data-nodeid="326">
+<tr data-nodeid="327">
+<td data-nodeid="328">EMP_GetEmployeeInfo</td>
+<td data-nodeid="329">獲取員工基本資料</td>
+<td data-nodeid="330">v1.0</td>
+</tr>
+</tbody>
+</table>
+<table data-nodeid="332">
+<thead data-nodeid="333">
+<tr data-nodeid="334">
+<th data-nodeid="336">聯繫人</th>
+<th data-nodeid="337">郵箱</th>
+</tr>
+</thead>
+<tbody data-nodeid="340">
+<tr data-nodeid="341">
+<td data-nodeid="342">HONGYA.ZHANG 張紅亞</td>
+<td data-nodeid="343">HONGYA.ZHANG@DELTAWW.COM</td>
+</tr>
+<tr data-nodeid="344">
+<td data-nodeid="345">STEVE.GQ.LIU 劉國清</td>
+<td data-nodeid="346">STEVE.GQ.LIU@DELTAWW.COM</td>
+</tr>
+</tbody>
+</table>
+<h2 data-nodeid="347">接口地址</h2>
+<h3 data-nodeid="348">請求方式</h3>
+<p data-nodeid="349"><code data-nodeid="500" data-backticks="1">POST</code></p>
+<h3 data-nodeid="350">接口地址</h3>
+<ul data-nodeid="351">
+<li data-nodeid="352">
+<p data-nodeid="353">測試環境：<a data-nodeid="507" href="https://dgqeap.deltaww.com/OACWebApi/api/Route/EMP_GetEmployeeInfo">https://dgqeap.deltaww.com/OACWebApi/api/Route/EMP_GetEmployeeInfo</a></p>
+</li>
+<li data-nodeid="354">
+<p data-nodeid="355">正式環境：<a data-nodeid="513" href="https://dgoa.deltaww.com/OACWebApi/api/Route/EMP_GetEmployeeInfo">https://dgoa.deltaww.com/OACWebApi/api/Route/EMP_GetEmployeeInfo</a></p>
+</li>
+</ul>
+<h3 data-nodeid="356">認證授權</h3>
+<ul data-nodeid="357">
+<li data-nodeid="358">
+<p data-nodeid="359">接口通過 HTTP <code data-nodeid="516" data-backticks="1">Header</code> 上添加 <code data-nodeid="518" data-backticks="1">x-userid</code>（賬號）、<code data-nodeid="520" data-backticks="1">x-pwd</code>（密碼）欄位進行認證</p>
+</li>
+<li data-nodeid="360">
+<p data-nodeid="361">測試環境賬號密碼請聯繫 OA Team 提供</p>
+</li>
+<li data-nodeid="362">
+<p data-nodeid="363">正式環境賬號密碼請於上線前聯繫 OA Team 提供</p>
+</li>
+</ul>
+<h2 data-nodeid="364">請求內容</h2>
+<h3 data-nodeid="365">請求參數</h3>
+<blockquote data-nodeid="366">
+<p data-nodeid="367">* 表示必傳</p>
+</blockquote>
+<table data-nodeid="369">
+<thead data-nodeid="370">
+<tr data-nodeid="371">
+<th data-nodeid="373">參數</th>
+<th data-nodeid="374">類型</th>
+<th data-nodeid="375">描述</th>
+<th data-nodeid="376">限制</th>
+</tr>
+</thead>
+<tbody data-nodeid="381">
+<tr data-nodeid="382">
+<td data-nodeid="383">InfoID *</td>
+<td data-nodeid="384">string</td>
+<td data-nodeid="385">欄位由 OA 提供, 作為 API 接口的唯一標誌符<br>解決SAP各團隊共用同一套 PI 帳號/密碼但不同訪問時間點的問題</td>
+<td data-nodeid="386"></td>
+</tr>
+<tr data-nodeid="387">
+<td data-nodeid="388">EmpCode *</td>
+<td data-nodeid="389">string</td>
+<td data-nodeid="390">資料對應的員工工號</td>
+<td data-nodeid="391"></td>
+</tr>
+<tr data-nodeid="392">
+<td data-nodeid="393">PersonalID</td>
+<td data-nodeid="394">string</td>
+<td data-nodeid="395">員工身份證號</td>
+<td data-nodeid="396"></td>
+</tr>
+<tr data-nodeid="397">
+<td data-nodeid="398">ModifyBeginDate</td>
+<td data-nodeid="399">string</td>
+<td data-nodeid="400">資料修改的開始時間</td>
+<td data-nodeid="401">sample: 2020/01/12 08:00:23</td>
+</tr>
+<tr data-nodeid="402">
+<td data-nodeid="403">ModifyEndDate</td>
+<td data-nodeid="404">string</td>
+<td data-nodeid="405">資料修改的結束時間</td>
+<td data-nodeid="406">sample: 2020/04/19 21:00:23</td>
+</tr>
+</tbody>
+</table>
+<h3 data-nodeid="407">詳細說明</h3>
+<ol data-nodeid="408">
+<li data-nodeid="409">
+<p data-nodeid="410">如果有傳入EmpCode,則只返回對應員工工號的資料,不判斷資料修改時間.</p>
+</li>
+<li data-nodeid="411">
+<p data-nodeid="412">如果ModifyBeginDate和ModifyEndDate都有傳時間,則資料範圍: ModifyBeginDate~ModifyEndDate時間段有變更/新增的.</p>
+</li>
+<li data-nodeid="413">
+<p data-nodeid="414">如果只傳入ModifyBeginDate,不傳入ModifyEndDate,則資料範圍是: ModifyBeginDate~當下時間點,有變更/新增的.</p>
+</li>
+<li data-nodeid="415">
+<p data-nodeid="416">如果不傳入ModifyBeginDate,只傳入ModifyEndDate,則資料範圍是: 上一次訪問時間點~ ModifyEndDate,有變更/新增的.如果ModifyBeginDate上一次沒有訪問時間點,則取當下時間點往前推1天做為ModifyBeginDate.</p>
+</li>
+</ol>
+<h3 data-nodeid="417">請求範例</h3>
+<pre data-nodeid="418" class="lang-json"><code data-language="json"><span class="token punctuation">{</span>
+    <span class="token property">"paramdata"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"condition"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"InfoID"</span><span class="token operator">:</span> <span class="token string">"3cb24f8b-ebc8-4a73-95ba-1b40827c4039"</span><span class="token punctuation">,</span>
+            <span class="token property">"EmpCode"</span><span class="token operator">:</span> <span class="token string">"00000185"</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 data-nodeid="419">回應內容</h2>
+<ul data-nodeid="420">
+<li data-nodeid="421">
+<p data-nodeid="422">接口通過 JSON 格式響應內容</p>
+</li>
+<li data-nodeid="423">
+<p data-nodeid="424">成功&amp;失敗 HTTP 狀態碼說明請參考信息格式頁</p>
+</li>
+<li data-nodeid="425">
+<p data-nodeid="426">Data: 因成功響應欄位過多，請參考附檔 Excel 所有欄位的詳細說明</p>
+</li>
+<li data-nodeid="427">
+<p data-nodeid="428">Info: 成功返回為空,失敗返回失敗信息</p>
+</li>
+</ul>
+<h3 data-nodeid="429">成功回應</h3>
+<pre data-nodeid="430" class="lang-json"><code data-language="json"><span class="token punctuation">{</span>
+    <span class="token property">"StatusCode"</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
+    <span class="token property">"Info"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token property">"Data"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">"EmpCode"</span><span class="token operator">:</span> <span class="token string">"00000185"</span><span class="token punctuation">,</span>
+            <span class="token property">"EmpName"</span><span class="token operator">:</span> <span class="token string">"尹佩林"</span><span class="token punctuation">,</span>
+            <span class="token property">"DisplayName"</span><span class="token operator">:</span> <span class="token string">"PALIN.YIN 尹佩林"</span><span class="token punctuation">,</span>
+            <span class="token property">"ADAccount"</span><span class="token operator">:</span> <span class="token string">"V-PALIN.YIN"</span><span class="token punctuation">,</span>
+            <span class="token property">"ADDomain"</span><span class="token operator">:</span> <span class="token string">"DELTA"</span><span class="token punctuation">,</span>
+            <span class="token property">"Email"</span><span class="token operator">:</span> <span class="token string">"V-PALIN.YIN@DELTAWW.COM"</span><span class="token punctuation">,</span>
+            <span class="token property">"ExtNo"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+            <span class="token property">"DeptCode"</span><span class="token operator">:</span> <span class="token string">"099J0006 "</span><span class="token punctuation">,</span>
+            <span class="token property">"TerminateDate"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+            <span class="token property">"ModifyDate"</span><span class="token operator">:</span> <span class="token string">"2021-04-20T03:02:39.673"</span><span class="token punctuation">,</span>
+            <span class="token property">"OrgUnitCode"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+            <span class="token property">"OrgUnitLname"</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+            <span class="token property">"OrgUnitEname"</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 data-nodeid="431">失敗回應</h3>
+<pre data-nodeid="432" class="lang-json"><code data-language="json"><span class="token punctuation">{</span>
+    <span class="token property">"StatusCode"</span><span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span>
+    <span class="token property">"Info"</span><span class="token operator">:</span> <span class="token string">"Internal server error/other"</span><span class="token punctuation">,</span>
+    <span class="token property">"Data"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 data-nodeid="433">信息格式</h2>
+<p data-nodeid="434">OA Standard Web API 通過 OA 通用接口管理平台 OAC 提供服務，接口請求/回應的格式均為 JSON 格式</p>
+<table data-nodeid="436">
+<thead data-nodeid="437">
+<tr data-nodeid="438">
+<th data-nodeid="440">Status Code</th>
+<th data-nodeid="441">Info</th>
+<th data-nodeid="442">Data</th>
+<th data-nodeid="443">備註</th>
+</tr>
+</thead>
+<tbody data-nodeid="448">
+<tr data-nodeid="449">
+<td data-nodeid="450">200</td>
+<td data-nodeid="451"></td>
+<td data-nodeid="452">返回數據</td>
+<td data-nodeid="453">請求 (或處理) 成功，Info值為空</td>
+</tr>
+<tr data-nodeid="454">
+<td data-nodeid="455">400</td>
+<td data-nodeid="456">The requested parameters are incomplete or incorrect.</td>
+<td data-nodeid="457"></td>
+<td data-nodeid="458">可能是 x-userid/x-pwd/apiid 漏傳值</td>
+</tr>
+<tr data-nodeid="459">
+<td data-nodeid="460">401</td>
+<td data-nodeid="461">Unauthorized</td>
+<td data-nodeid="462"></td>
+<td data-nodeid="463">1. x-userid不合法；<br>2. x-userid/x-pwd驗證不通過；<br>3. x-userid無權限訪問apiid接口.<br>4. x-userid被停用.</td>
+</tr>
+<tr data-nodeid="464">
+<td data-nodeid="465">404</td>
+<td data-nodeid="466">Not Found Apiid.</td>
+<td data-nodeid="467"></td>
+<td data-nodeid="468">1. 賬號和密碼正確，卻傳入了錯誤的Apiid接口方法;<br>2. Apiid接口被停用.</td>
+</tr>
+<tr data-nodeid="469">
+<td data-nodeid="470">405</td>
+<td data-nodeid="471">The requested resource does not support http method 'GET' or http headers Content-Type.</td>
+<td data-nodeid="472"></td>
+<td data-nodeid="473">1. 訪問通過OAC重新發起請求並對參數進行處理的接口時必須采用POST方式，其他方式只能修改Url直接跳轉.<br>2. Headers中Content-Type暫時只支持application/xml和application/json</td>
+</tr>
+<tr data-nodeid="474">
+<td data-nodeid="475">500</td>
+<td data-nodeid="476">Internal server error/other</td>
+<td data-nodeid="477"></td>
+<td data-nodeid="478">Info 為具體報錯的信息</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
